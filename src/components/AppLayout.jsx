@@ -10,6 +10,11 @@ const StyledAppLayout = styled.div`
   grid-template-columns: 30rem 1fr;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
+
+  & .aside {
+    position: relative;
+    grid-row: 1 / -1;
+  }
 `;
 
 const Main = styled.main`
@@ -17,19 +22,20 @@ const Main = styled.main`
   /* padding: 4rem 2rem 6.4rem; */
 `;
 
-
 const AppLayout = () => {
   return (
     <StyledAppLayout>
       <Header>
         <h1>Admin Dashboard</h1>
       </Header>
-      <Sidebar />
+      <div className="aside">
+        <Sidebar />
+      </div>
       <Main>
         <Outlet />
       </Main>
     </StyledAppLayout>
   );
-}
+};
 
-export default AppLayout
+export default AppLayout;

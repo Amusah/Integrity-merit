@@ -16,4 +16,5 @@ import { styled } from "styled-components";
   font-size: 4.8rem;
 `;
 
+
 export { fontRegular, fontBold, fontSemiBold};

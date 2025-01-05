@@ -9,6 +9,7 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { GoTrophy } from "react-icons/go";
 import { GoGraph } from "react-icons/go";
 import { VscFeedback } from "react-icons/vsc";
+import { FiSettings } from "react-icons/fi";
 
 const NavList = styled.ul`
   display: flex;
@@ -25,7 +26,7 @@ const StyledNavLink = styled(NavLink)`
     font-size: 1.9rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.7rem;
 
     color: #fff;
   }
@@ -37,52 +38,67 @@ const StyledNavLink = styled(NavLink)`
     text-decoration: underline;
     text-underline-offset: 1rem;
   }
+
+  /* & span{
+    display: none;
+  } */
 `;
+
+const iconStyle = {
+  color: "#fff",
+  fontSize: "50",
+};
 
 const MainNav = () => {
   return (
     <nav>
       <NavList>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/">
             <CiHome />
             <span>Home</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/departments">
             <HiOutlineBuildingOffice />
             <span>Departments</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/employees">
             <GrGroup />
             <span>Employees</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/resignations">
             <MdOutlineCancelPresentation />
             <span>Resignations / Terminations</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/rewards">
             <GoTrophy />
             <span>Rewards / Punishment</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/kpi">
             <GoGraph />
             <span>KPI</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dashboard">
+          <StyledNavLink to="/feedbacks">
             <VscFeedback />
             <span>Feedbacks</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink>
+            <FiSettings />
+            <span>Settings</span>
           </StyledNavLink>
         </li>
       </NavList>

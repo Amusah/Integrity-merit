@@ -5,6 +5,7 @@ import notice from './Desktop/notice.svg';
 import permissions from './Desktop/permissions.svg';
 import salary from './Desktop/salary-slip.svg';
 import birthday from './Desktop/birthday.svg';
+import profile from './Desktop/profile.svg';
 
 
 export const desktop = {
@@ -14,6 +15,7 @@ export const desktop = {
   notice,
   permissions,
   salary,
-  birthday
+  birthday,
+  profile
 }
 
