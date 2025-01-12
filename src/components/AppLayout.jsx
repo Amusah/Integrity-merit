@@ -1,19 +1,27 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { styled } from "styled-components";
+import { breakPoints } from "../styles/breakpoints";
 
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import { styled } from "styled-components";
 import Container from "./Container";
+import TitleBadge from "./TitleBadge";
 
 const StyledAppLayout = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: 30rem 1fr;
-  grid-template-rows: auto 1fr;
-  min-height: 100vh;
+  grid-template-rows: auto 1fr; */
+  /* position: relative; */
+  /* min-height: 100vh; */
 
-  & .aside {
-    position: relative;
-    grid-row: 1 / -1;
+  display: flex;
+
+  & .mainContainer{
+    width: 100%;
+  }
+
+  ${breakPoints.laptopScreen} {
+    /* position: relative; */
   }
 `;
 
@@ -23,17 +31,28 @@ const Main = styled.main`
 `;
 
 const AppLayout = () => {
+  const { pathname } = useLocation();
+  const location = pathname.split("/")[1];
+
+  //location === "dashboard" ? `Admin ${location}` : `${location}`;
+  // const pageTitle =
+  console.log(location);
+
   return (
     <StyledAppLayout>
-      <Header>
-        <h1>Admin Dashboard</h1>
-      </Header>
-      <div className="aside">
-        <Sidebar />
+      <Sidebar />
+      <div className="mainContainer">
+        <Header>
+          {location === "dashboard" ? (
+            <h1>Admin Dashboard</h1>
+          ) : (
+            <TitleBadge pageTitle={location} />
+          )}
+        </Header>
+        <Main>
+          <Outlet />
+        </Main>
       </div>
-      <Main>
-        <Outlet />
-      </Main>
     </StyledAppLayout>
   );
 };

@@ -1,4 +1,4 @@
-import { desktop } from './assets';
+import { desktop } from "./assets";
 
 const { holiday, leave, notice, permissions, salary, birthday } = desktop;
 
@@ -110,4 +110,55 @@ export const features = [
   // {
   //   id:
   // }
+];
+
+export const departments = [
+  {
+    id: "finanace",
+    name: "Finance Department",
+    description: "Financial record keeping, budget management, payroll",
+    management: "Manager",
+  },
+
+  {
+    id: "sales",
+    name: "Sales/Marketing Department",
+    description: "Market research, promotional activities, customer relations",
+    management: "Manager",
+  },
+
+  {
+    id: "production",
+    name: "Production/Operations",
+    description: "Production planning, quality control, maintenance",
+    management: "Manager",
+  },
+
+  {
+    id: "customer-service",
+    name: "Customer Service",
+    description: "Customer support, service quality assurance",
+    management: "Manager",
+  },
+
+  {
+    id: "administration",
+    name: "Administration",
+    description: "Coordination, decision making, event management",
+    management: "Manager",
+  },
+
+  {
+    id: "purchasing",
+    name: "Purchasing/Procurement",
+    description: "Supplier management, goods procurement, inventory control",
+    management: "Manager",
+  },
+
+  {
+    id: 'human-resource',
+    name: "Human Resource",
+    description: "Recruitment, training, employee relations",
+    management: "Manager",
+  },
 ];

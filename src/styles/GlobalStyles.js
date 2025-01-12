@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { fontRegular } from "./mixins";
+import { breakPoints } from "./breakpoints";
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -35,7 +36,57 @@ const GlobalStyles = createGlobalStyle`
   h1{
     ${fontRegular}
   }
-`;
 
+  ${breakPoints.laptopScreen}{
+
+    .navList{
+      align-items: flex-end;
+      /* width: 100%; */
+
+       .navLink {
+
+        .icon{
+          font-size: 4rem;
+          /* width: 100%; */
+        }
+        
+         span{
+          display: none;
+        }
+       }
+    }
+
+    .sideBar{
+    
+      width: 10rem;
+      
+
+      /* &:hover{
+        position: absolute;
+        width: auto;
+
+        .navList{
+          align-items: flex-start;
+        }
+
+        .navLink{
+          span{
+            display: block;
+          }
+        }
+      } */
+
+    }
+  }
+
+  /* @keyframes slideIn {
+      0% {
+        width: 10%;
+      }
+      100% {
+        width: auto;
+      }
+    } */
+`;
 
 export default GlobalStyles;
