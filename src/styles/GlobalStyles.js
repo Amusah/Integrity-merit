@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    /* color: #72c6D1; */
 
     transition: background-color 0.3s, border 0.3s;
   }
@@ -35,6 +36,10 @@ const GlobalStyles = createGlobalStyle`
 
   h1{
     ${fontRegular}
+  }
+
+  button{
+    transition: all .1s ease-in;
   }
 
   ${breakPoints.laptopScreen}{
