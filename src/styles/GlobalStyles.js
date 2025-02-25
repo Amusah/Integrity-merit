@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
 import { fontRegular } from "./mixins";
 import { breakPoints } from "./breakpoints";
 
@@ -45,25 +45,29 @@ const GlobalStyles = createGlobalStyle`
   ${breakPoints.laptopScreen}{
 
     .navList{
-      align-items: flex-end;
+      /* align-items: flex-end; */
       /* width: 100%; */
+      justify-content: center;
 
        .navLink {
-
+          flex-direction: column;
+          
+          /* align-items: center; */
+          /* margin: 0 auto; */
         .icon{
           font-size: 4rem;
           /* width: 100%; */
         }
         
          span{
-          display: none;
+          /* display: none; */
         }
        }
     }
 
     .sideBar{
     
-      width: 10rem;
+      width: 15rem;
       
 
       /* &:hover{
@@ -92,6 +96,18 @@ const GlobalStyles = createGlobalStyle`
         width: auto;
       }
     } */
+`;
+
+export const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100%{
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 `;
 
 export default GlobalStyles;

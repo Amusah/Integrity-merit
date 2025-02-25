@@ -1,5 +1,3 @@
-import { NavLink } from "react-router-dom";
-import { styled } from "styled-components";
 
 // ICONS //
 import { CiHome } from "react-icons/ci";
@@ -10,42 +8,9 @@ import { GoTrophy } from "react-icons/go";
 import { GoGraph } from "react-icons/go";
 import { VscFeedback } from "react-icons/vsc";
 import { FiSettings } from "react-icons/fi";
-import { breakPoints } from "../styles/breakpoints";
+import { NavList, StyledNavLink } from "../styles/MainNav";
 
-const NavList = styled.ul`
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
-  flex-direction: column;
-  gap: 4.5rem;
-  /* align-items: left; */
-`;
 
-const StyledNavLink = styled(NavLink)`
-  &:link,
-  &:visited {
-    font-size: 1.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-
-    color: #fff;
-  }
-
-  &:hover,
-  &:active,
-  &:active:link,
-  &:active:visited {
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-  }
-
-`;
-
-const iconStyle = {
-  color: "#fff",
-  fontSize: "50",
-};
 
 const MainNav = () => {
   return (

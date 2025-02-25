@@ -162,3 +162,35 @@ export const departments = [
     management: "Manager",
   },
 ];
+
+export const employees = [
+  {
+    staffId: "001",
+    name: "Moh Dabana",
+    role: "Product Manager",
+    image: "https://avatar.iran.liara.run/public/16",
+  },
+
+  {
+    staffId: "002",
+    name: "Henry Amusah",
+    role: "Software Engineer",
+    image: "https://avatar.iran.liara.run/public/26",
+  },
+
+  {
+    staffId: "003",
+    name: "Shuai Huang",
+    role: "Procurement Specialist",
+    image: "https://avatar.iran.liara.run/public/12",
+  },
+
+  {
+    staffId: "004",
+    name: "Shuai Huang",
+    role: "Procurement Specialist",
+    image: "https://avatar.iran.liara.run/public/12",
+  },
+];
+
+

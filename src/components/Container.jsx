@@ -6,6 +6,7 @@ const StyledContainer = styled.div`
   padding: 4rem 4rem 6.4rem;
   height: 100vh;
   overflow: auto;
+  /* position: relative; */
 
   &::-webkit-scrollbar{
     display: none;
