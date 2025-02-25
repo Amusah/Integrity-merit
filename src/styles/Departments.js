@@ -1,4 +1,4 @@
-import styled, { keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { fadeIn } from "./GlobalStyles";
 
 export const SearchFormWrapper = styled.div`
@@ -209,7 +209,7 @@ export const FormRow = styled.div`
     &:focus + .input-label,
     &:not(:placeholder-shown) + .input-label {
       color: var(--light-primary);
-      background-color: #fff;
+      background-color: #f9fafb;
       padding: 0.2rem 0.5rem;
       top: -25%;
     }
@@ -217,12 +217,14 @@ export const FormRow = styled.div`
     &:focus + .textarea-label,
     &:not(:placeholder-shown) + .textarea-label {
       color: var(--light-primary);
-      background-color: #fff;
+      background-color: #f9fafb;
       padding: 0.2rem 0.5rem;
       top: -12%;
     }
   }
+
+  button {
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+  }
 `;
-
-
-

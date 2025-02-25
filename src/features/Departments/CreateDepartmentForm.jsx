@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 
-import { CreateFormContainer, FormRow } from "../../styles/Departments";
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
 import { IoCloseCircle } from "react-icons/io5";
+
+import Button from "../../components/Button";
+import { CreateFormContainer, FormRow } from "../../styles/Departments";
+// import { employees } from "../..";
 
 function CreateDepartmentForm({ toggleForm }) {
   const { register } = useForm();
@@ -50,9 +52,18 @@ function CreateDepartmentForm({ toggleForm }) {
             </label>
           </FormRow>
           <FormRow>
-            <label htmlFor="manager">Management</label>
-            <select name="" id=""></select>
+            <input
+              type="text"
+              id="manager"
+              {...register("manager")}
+              placeholder=""
+            />
+            <label className="input-label" htmlFor="manager">
+              Management
+            </label>
+            {/* <img src="https://avatar.iran.liara.run/public/12" alt="" /> */}
           </FormRow>
+          <Button>Create</Button>
         </form>
       </div>
     </CreateFormContainer>
