@@ -46,67 +46,78 @@ export const SearchFormWrapper = styled.div`
   }
 `;
 
-export const Table = styled.table`
+export const Table = styled.div`
   margin-top: 3rem;
   width: 100%;
+`
 
-  thead {
-    background-color: var(--light-primary);
+export const TableHeader = styled.header`
+  background-color: var(--light-primary);
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem 1rem;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: normal;
+`;
+  // thead {
+    // background-color: var(--light-primary);
 
-    tr {
+    // tr {
       /* display: flex; */
       /* justify-content: space-between; */
-    }
+    // }
 
-    tr td {
-      padding: 1.5rem 1rem;
-      font-size: 2rem;
-      color: #fff;
-      font-weight: normal;
-    }
-  }
+    // tr td {
+      // padding: 1.5rem 1rem;
+      // font-size: 2rem;
+      // color: #fff;
+      // font-weight: normal;
+    // }
+  // }
 
-  tbody {
+  // tbody {
     /* background-color: #f4f4f4; */
-    tr {
-      background-color: #f4f4f4;
-    }
-    tr td {
-      padding: 1.5rem 1rem;
-      font-size: 1.5rem;
+    // tr {
+      // background-color: #f4f4f4;
+    // }
+    // tr .link {
+      // padding: 1.5rem 1rem;
+      // font-size: 1.5rem;
 
-      &:last-child {
-        text-align: center;
-      }
+      // &:last-child {
+        // text-align: center;
+      // }
 
-      .link {
-        color: #424040;
-        width: 100%;
-        &:hover {
-          color: var(--light-primary);
-        }
-      }
-    }
+    //   .link {
+    //     color: #424040;
+    //     width: 100%;
+    //     &:hover {
+    //       color: var(--light-primary);
+    //     }
+    //   }
+    // }
 
-    .actionBtn {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+  //   .actionBtn {
+  //     display: flex;
+  //     justify-content: space-evenly;
+  //     align-items: center;
 
-      .btn {
-        font-size: 2rem;
-        cursor: pointer;
+  //     .btn {
+  //       font-size: 2rem;
+  //       cursor: pointer;
 
-        & {
-          color: var(--light-primary);
-        }
-        &:last-child {
-          color: red;
-        }
-      }
-    }
-  }
-`;
+  //       & {
+  //         color: var(--light-primary);
+  //       }
+  //       &:last-child {
+  //         color: red;
+  //       }
+  //     }
+  //   }
+  // }
+// `;
+
 
 export const CreateFormContainer = styled.div`
   position: fixed;
@@ -123,7 +134,7 @@ export const CreateFormContainer = styled.div`
 
   .wrapper {
     width: 25%;
-    height: 65rem;
+    height: 70vh;
     background-color: var(--grey-background);
     border-radius: 2rem;
     animation: ${fadeIn} 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48);
@@ -224,7 +235,7 @@ export const FormRow = styled.div`
   }
 
   button {
-    border-top-right-radius: 0.7rem;
-    border-bottom-right-radius: 0.7rem;
+    border-radius: 0.7rem;
+    margin-top: 3rem;
   }
 `;

@@ -41,7 +41,7 @@ function CreateDepartmentForm({ toggleForm }) {
           </FormRow>
           <FormRow>
             <textarea
-              rows="5"
+              rows="3"
               type="text"
               id="description"
               {...register("description")}
@@ -63,7 +63,10 @@ function CreateDepartmentForm({ toggleForm }) {
             </label>
             {/* <img src="https://avatar.iran.liara.run/public/12" alt="" /> */}
           </FormRow>
+          <FormRow>
+
           <Button>Create</Button>
+          </FormRow>
         </form>
       </div>
     </CreateFormContainer>
