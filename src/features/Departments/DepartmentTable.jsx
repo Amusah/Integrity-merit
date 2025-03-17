@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
+// COMPONENTS
+import Spinner from "../../components/Spinner";
 
 // STYLES
 import { Table, TableHeader } from "../../styles/Departments";
@@ -13,9 +17,18 @@ import { useEffect } from "react";
 import { getDepartments } from "../../services/apiDepartments";
 
 function DepartmentTable() {
-  useEffect(function () {
-    getDepartments().then((data) => console.log(data));
-  }, []);
+  const {
+    isLoading,
+    data: departments,
+    error,
+  } = useQuery({
+    queryKey: ["department"],
+    queryFn: getDepartments,
+  });
+
+  // if (isLoading) return <Spinner />;
+
+  // {isLoading && <Spinner />};
 
   return (
     <Table role="table">
@@ -25,7 +38,7 @@ function DepartmentTable() {
         <div>Management</div>
         <div>Actions</div>
       </TableHeader>
-
+      {isLoading && <Spinner />};
       {/* <tbody>
         {departments.map((department) => (
           <tr key={department.id}>
