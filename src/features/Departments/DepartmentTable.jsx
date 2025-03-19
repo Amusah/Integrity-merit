@@ -4,15 +4,16 @@ import { useQuery } from "@tanstack/react-query";
 // COMPONENTS
 import Spinner from "../../components/Spinner";
 
-// STYLES
+// STYLED COMPONENT
 import { Table, TableHeader } from "../../styles/Departments";
+import DepartmentRow from "./DepartmentRow";
 
 // ICONS
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 //DATA
-import { departments } from "../..";
+// import { departments } from "../..";
 import { useEffect } from "react";
 import { getDepartments } from "../../services/apiDepartments";
 
@@ -22,13 +23,15 @@ function DepartmentTable() {
     data: departments,
     error,
   } = useQuery({
-    queryKey: ["department"],
+    queryKey: ["departments"],
     queryFn: getDepartments,
   });
 
-  // if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   // {isLoading && <Spinner />};
+
+  console.log(departments)
 
   return (
     <Table role="table">
@@ -38,7 +41,10 @@ function DepartmentTable() {
         <div>Management</div>
         <div>Actions</div>
       </TableHeader>
-      {isLoading && <Spinner />};
+      {/* {isLoading && <Spinner />} */}
+      {departments.map(department => <DepartmentRow department={department} key={department.id}/>)}
+    
+
       {/* <tbody>
         {departments.map((department) => (
           <tr key={department.id}>

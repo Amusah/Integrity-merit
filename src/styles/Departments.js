@@ -49,7 +49,8 @@ export const SearchFormWrapper = styled.div`
 export const Table = styled.div`
   margin-top: 3rem;
   width: 100%;
-`
+  /* display: table; */
+`;
 
 export const TableHeader = styled.header`
   background-color: var(--light-primary);
@@ -59,65 +60,72 @@ export const TableHeader = styled.header`
   font-size: 2rem;
   color: #fff;
   font-weight: normal;
+  text-align: left;
+
+  & div{
+    width: 30%;
+    padding: 1rem;
+  }
 `;
-  // thead {
-    // background-color: var(--light-primary);
 
-    // tr {
-      /* display: flex; */
-      /* justify-content: space-between; */
-    // }
 
-    // tr td {
-      // padding: 1.5rem 1rem;
-      // font-size: 2rem;
-      // color: #fff;
-      // font-weight: normal;
-    // }
-  // }
+// thead {
+// background-color: var(--light-primary);
 
-  // tbody {
-    /* background-color: #f4f4f4; */
-    // tr {
-      // background-color: #f4f4f4;
-    // }
-    // tr .link {
-      // padding: 1.5rem 1rem;
-      // font-size: 1.5rem;
+// tr {
+/* display: flex; */
+/* justify-content: space-between; */
+// }
 
-      // &:last-child {
-        // text-align: center;
-      // }
+// tr td {
+// padding: 1.5rem 1rem;
+// font-size: 2rem;
+// color: #fff;
+// font-weight: normal;
+// }
+// }
 
-    //   .link {
-    //     color: #424040;
-    //     width: 100%;
-    //     &:hover {
-    //       color: var(--light-primary);
-    //     }
-    //   }
-    // }
+// tbody {
+/* background-color: #f4f4f4; */
+// tr {
+// background-color: #f4f4f4;
+// }
+// tr .link {
+// padding: 1.5rem 1rem;
+// font-size: 1.5rem;
 
-  //   .actionBtn {
-  //     display: flex;
-  //     justify-content: space-evenly;
-  //     align-items: center;
+// &:last-child {
+// text-align: center;
+// }
 
-  //     .btn {
-  //       font-size: 2rem;
-  //       cursor: pointer;
+//   .link {
+//     color: #424040;
+//     width: 100%;
+//     &:hover {
+//       color: var(--light-primary);
+//     }
+//   }
+// }
 
-  //       & {
-  //         color: var(--light-primary);
-  //       }
-  //       &:last-child {
-  //         color: red;
-  //       }
-  //     }
-  //   }
-  // }
+//   .actionBtn {
+//     display: flex;
+//     justify-content: space-evenly;
+//     align-items: center;
+
+//     .btn {
+//       font-size: 2rem;
+//       cursor: pointer;
+
+//       & {
+//         color: var(--light-primary);
+//       }
+//       &:last-child {
+//         color: red;
+//       }
+//     }
+//   }
+// }
 // `;
-
 
 export const CreateFormContainer = styled.div`
   position: fixed;

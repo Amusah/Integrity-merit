@@ -7,10 +7,6 @@ const LoadingSpinner = styled.div`
   aspect-ratio: 1;
   border-radius: 50%;
   margin: 5% auto;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background: var(--light-primary);
   --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
   -webkit-mask: var(--_m);
