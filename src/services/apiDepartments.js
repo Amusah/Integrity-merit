@@ -9,3 +9,19 @@ export const getDepartments = async () => {
   }
   return data;
 };
+
+
+export const deleteDepartment = async id =>{
+
+const { data, error } = await supabase
+  .from("Departments")
+  .delete()
+  .eq("id", id);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Departments could not be loaded");
+  }
+  return data;
+
+}

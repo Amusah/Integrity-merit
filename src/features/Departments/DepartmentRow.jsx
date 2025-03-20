@@ -1,14 +1,17 @@
 import React from "react";
 import { styled } from "styled-components";
 import StyledButton from "../../components/Button";
+import Spinner from "../../components/Spinner";
 
 // ICONS
 // import { MdOutlineModeEditOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteDepartment } from "../../services/apiDepartments";
 
-export const TableRow = styled.div`
+const TableRow = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -17,10 +20,6 @@ export const TableRow = styled.div`
   background-color: #f4f4f4;
   margin-top: 0.7rem;
   cursor: pointer;
-
-  /* & div{
-    display: table-cell;
-  } */
 `;
 
 const TableCell = styled.div`
@@ -54,7 +53,19 @@ const TableData = styled(Link)`
 `;
 
 function DepartmentRow({ department }) {
-  const { name, description, management } = department;
+  const { id: departmentId, name, description, management } = department;
+
+  const queryClient = useQueryClient();
+
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: (id) => deleteDepartment(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["departments"]
+      })
+    }
+  });
+
   return (
     <TableRow>
       <TableCell>
@@ -71,8 +82,14 @@ function DepartmentRow({ department }) {
           <FiEdit className="btn" />
           {/* <span>Edit</span> */}
         </StyledButton>
-        <StyledButton className="action__btn" $bg="#d91656">
+        <StyledButton
+          onClick={() => mutate(departmentId)}
+          className="action__btn"
+          $bg="#d91656"
+        >
           <RiDeleteBin6Line className="btn" />
+          {isDeleting && <Spinner $size="2rem" $color="#fff" />}
+          {/* <Spinner $size="2rem" $color="#fff" /> */}
           {/* <span>Drop</span> */}
         </StyledButton>
       </TableCell>
