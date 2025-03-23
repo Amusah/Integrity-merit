@@ -20,7 +20,7 @@ const { data, error } = await supabase
 
   if (error) {
     console.error(error);
-    throw new Error("Departments could not be loaded");
+    throw new Error("Department could not be deleted");
   }
   return data;
 

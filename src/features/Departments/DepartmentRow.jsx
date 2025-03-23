@@ -52,18 +52,26 @@ const TableData = styled(Link)`
   color: #000;
 `;
 
-function DepartmentRow({ department }) {
+function DepartmentRow({ department, toggleMsgBox, setDepartmentId }) {
   const { id: departmentId, name, description, management } = department;
+
+  function handleDelete(){
+    toggleMsgBox();
+    setDepartmentId(departmentId);
+
+  }
 
   const queryClient = useQueryClient();
 
   const { isLoading: isDeleting, mutate } = useMutation({
     mutationFn: (id) => deleteDepartment(id),
     onSuccess: () => {
+      alert('Department successfully deleted')
       queryClient.invalidateQueries({
         queryKey: ["departments"]
-      })
-    }
+      });
+    },
+    onError: (err) => alert(err.message)
   });
 
   return (
@@ -80,17 +88,14 @@ function DepartmentRow({ department }) {
       <TableCell className="action">
         <StyledButton className="action__btn">
           <FiEdit className="btn" />
-          {/* <span>Edit</span> */}
         </StyledButton>
         <StyledButton
-          onClick={() => mutate(departmentId)}
+          // onClick={() => mutate(departmentId)}
+          onClick={handleDelete}
           className="action__btn"
           $bg="#d91656"
         >
           <RiDeleteBin6Line className="btn" />
-          {isDeleting && <Spinner $size="2rem" $color="#fff" />}
-          {/* <Spinner $size="2rem" $color="#fff" /> */}
-          {/* <span>Drop</span> */}
         </StyledButton>
       </TableCell>
     </TableRow>

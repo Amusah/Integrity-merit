@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     --primary: #3DACDB;
     --light-primary: #72B7D4;
     --grey-background: #F9FAFB;
+    --danger: #d91656
   }
 
   *, *::before, *::after {

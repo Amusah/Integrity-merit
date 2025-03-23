@@ -13,7 +13,7 @@ const type = {
   `,
 
   danger: css`
-    background-color: #d91656;
+    background-color: var(--danger);
     color: #fff;
     border-radius: 0.7rem;
   `,
@@ -21,15 +21,16 @@ const type = {
 
 const StyledButton = styled.button`
   background-color: ${props => props.$bg || "var(--light-primary)"};
-  border: none;
+  border: ${props => props.$border || 'none'};
   padding: 1rem 2rem;
-  color: #fff;
+  color: ${props => props.$textColor || '#fff'};
   font-size: 1.5rem;
   cursor: pointer;
   /* border-radius: 0.7rem; */
 
   &:hover {
     filter: brightness(107%);
+    /* transform: translateY(-2%) */
   }
 `;
 

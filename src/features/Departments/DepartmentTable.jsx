@@ -1,23 +1,24 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+
 
 // COMPONENTS
 import Spinner from "../../components/Spinner";
+import MessageBox from "../../components/MessageBox";
 
 // STYLED COMPONENT
 import { Table, TableHeader } from "../../styles/Departments";
 import DepartmentRow from "./DepartmentRow";
 
-// ICONS
-import { MdOutlineModeEditOutline } from "react-icons/md";
-import { RiDeleteBin6Line } from "react-icons/ri";
 
 //DATA
-// import { departments } from "../..";
-import { useEffect } from "react";
 import { getDepartments } from "../../services/apiDepartments";
 
 function DepartmentTable() {
+  const [showMsg, setShowMsg] = useState(false);
+  const [departmentId, setDepartmentId] = useState(null);
+
   const {
     isLoading,
     data: departments,
@@ -27,11 +28,12 @@ function DepartmentTable() {
     queryFn: getDepartments,
   });
 
+  function toggleMsg() {
+    setShowMsg((show) => !show);
+  }
+
+
   if (isLoading) return <Spinner />;
-
-  // {isLoading && <Spinner />};
-
-  console.log(departments)
 
   return (
     <Table role="table">
@@ -42,35 +44,19 @@ function DepartmentTable() {
         <div>Actions</div>
       </TableHeader>
       {/* {isLoading && <Spinner />} */}
-      {departments.map(department => <DepartmentRow department={department} key={department.id}/>)}
-    
-
-      {/* <tbody>
-        {departments.map((department) => (
-          <tr key={department.id}>
-            <td>
-              <Link to={`/${department.id}`} className="link">
-                {department.name}
-              </Link>
-            </td>
-            <td>
-              <Link to={`/${department.id}`} className="link">
-                {department.description}
-              </Link>
-            </td>
-            <td>
-              <Link to={`/${department.id}`} className="link">
-                {department.management}
-              </Link>
-            </td>
-            <td className="actionBtn">
-              <TiEdit className="btn" />
-              <MdOutlineModeEditOutline className="btn" />
-              <RiDeleteBin6Line className="btn" />
-            </td>
-          </tr>
-        ))}
-      </tbody> */}
+      {departments.map((department) => (
+        <DepartmentRow
+          setDepartmentId={setDepartmentId}
+          toggleMsgBox={toggleMsg}
+          department={department}
+          key={department.id}
+        />
+      ))}
+      {showMsg && (
+        <MessageBox departmentId={departmentId} toggleMsg={toggleMsg}>
+          Dissolve department?
+        </MessageBox>
+      )}
     </Table>
   );
 }

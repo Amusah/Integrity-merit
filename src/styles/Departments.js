@@ -56,7 +56,7 @@ export const TableHeader = styled.header`
   background-color: var(--light-primary);
   display: flex;
   justify-content: space-around;
-  padding: 1.5rem 1rem;
+  padding: 1rem;
   font-size: 2rem;
   color: #fff;
   font-weight: normal;
@@ -68,64 +68,6 @@ export const TableHeader = styled.header`
   }
 `;
 
-
-// thead {
-// background-color: var(--light-primary);
-
-// tr {
-/* display: flex; */
-/* justify-content: space-between; */
-// }
-
-// tr td {
-// padding: 1.5rem 1rem;
-// font-size: 2rem;
-// color: #fff;
-// font-weight: normal;
-// }
-// }
-
-// tbody {
-/* background-color: #f4f4f4; */
-// tr {
-// background-color: #f4f4f4;
-// }
-// tr .link {
-// padding: 1.5rem 1rem;
-// font-size: 1.5rem;
-
-// &:last-child {
-// text-align: center;
-// }
-
-//   .link {
-//     color: #424040;
-//     width: 100%;
-//     &:hover {
-//       color: var(--light-primary);
-//     }
-//   }
-// }
-
-//   .actionBtn {
-//     display: flex;
-//     justify-content: space-evenly;
-//     align-items: center;
-
-//     .btn {
-//       font-size: 2rem;
-//       cursor: pointer;
-
-//       & {
-//         color: var(--light-primary);
-//       }
-//       &:last-child {
-//         color: red;
-//       }
-//     }
-//   }
-// }
-// `;
 
 export const CreateFormContainer = styled.div`
   position: fixed;

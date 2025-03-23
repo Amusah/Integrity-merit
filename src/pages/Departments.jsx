@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 import Container from "../components/Container";
 import SearchDepartmentForm from "../features/Departments/SearchDepartmentForm";
 import DepartmentTable from "../features/Departments/DepartmentTable";
 import CreateDepartmentForm from "../features/Departments/CreateDepartmentForm";
-import { useState } from "react";
+
 
 function Departments() {
   const [showForm, setShowForm] = useState(false);
@@ -11,6 +13,7 @@ function Departments() {
   function toggleForm() {
     setShowForm((show) => !show);
   }
+
   return (
     <Container>
       <SearchDepartmentForm toggleForm={toggleForm} />

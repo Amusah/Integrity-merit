@@ -5,25 +5,13 @@ import { IoCloseCircle } from "react-icons/io5";
 
 import Button from "../../components/Button";
 import { CreateFormContainer, FormRow } from "../../styles/Departments";
+import { useEscapeEvent } from "../../hooks/Events";
 // import { employees } from "../..";
 
 function CreateDepartmentForm({ toggleForm }) {
   const { register } = useForm();
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        toggleForm();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  useEscapeEvent(toggleForm);
 
   return (
     <CreateFormContainer>
