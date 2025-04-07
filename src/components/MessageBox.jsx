@@ -1,7 +1,7 @@
 import React from "react";
+import { styled } from "styled-components";
 
 // COMPONENTS
-import { styled } from "styled-components";
 import StyledButton from "./Button";
 import { fadeIn } from "../styles/GlobalStyles";
 import Spinner from "./Spinner";
@@ -17,9 +17,10 @@ import { useEscapeEvent } from "../hooks/Events";
 // SERVICES
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteDepartment } from "../services/apiDepartments";
+import { wrapper } from "../styles/mixins";
 
 const MessageWrapper = styled.div`
-  position: fixed;
+  /* position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -29,7 +30,8 @@ const MessageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; */
+  ${wrapper}
 `;
 
 const Message = styled.div`

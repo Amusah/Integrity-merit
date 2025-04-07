@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteDepartment } from "../../services/apiDepartments";
 
+// Hooks
+import { truncate } from "../../hooks/useTruncate";
+
 const TableRow = styled.div`
   display: flex;
   justify-content: space-around;
@@ -55,24 +58,10 @@ const TableData = styled(Link)`
 function DepartmentRow({ department, toggleMsgBox, setDepartmentId }) {
   const { id: departmentId, name, description, management } = department;
 
-  function handleDelete(){
+  function handleDelete() {
     toggleMsgBox();
     setDepartmentId(departmentId);
-
   }
-
-  const queryClient = useQueryClient();
-
-  const { isLoading: isDeleting, mutate } = useMutation({
-    mutationFn: (id) => deleteDepartment(id),
-    onSuccess: () => {
-      alert('Department successfully deleted')
-      queryClient.invalidateQueries({
-        queryKey: ["departments"]
-      });
-    },
-    onError: (err) => alert(err.message)
-  });
 
   return (
     <TableRow>
@@ -80,7 +69,7 @@ function DepartmentRow({ department, toggleMsgBox, setDepartmentId }) {
         <TableData to={`/${name.toLowerCase()}`}>{name}</TableData>
       </TableCell>
       <TableCell>
-        <TableData to={`/${name.toLowerCase()}`}>{description}</TableData>
+        <TableData to={`/${name.toLowerCase()}`}>{truncate(description, 20)}</TableData>
       </TableCell>
       <TableCell>
         <TableData to={`/${name.toLowerCase()}`}>{management}</TableData>

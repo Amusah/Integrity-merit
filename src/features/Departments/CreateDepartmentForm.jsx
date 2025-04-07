@@ -6,12 +6,31 @@ import { IoCloseCircle } from "react-icons/io5";
 import Button from "../../components/Button";
 import { CreateFormContainer, FormRow } from "../../styles/Departments";
 import { useEscapeEvent } from "../../hooks/Events";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createDepartment } from "../../services/apiDepartments";
+import { toast } from "react-hot-toast";
 // import { employees } from "../..";
 
 function CreateDepartmentForm({ toggleForm }) {
-  const { register } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: createDepartment,
+    onSuccess: () => {
+      toast.success("Department successfully created");
+      queryClient.invalidateQueries({ queryKey: ["departments"] });
+      reset();
+    },
+    onError: (err) => toast.error(err.message),
+  });
 
   useEscapeEvent(toggleForm);
+
+  function onSubmit(data) {
+    console.log(data);
+  }
 
   return (
     <CreateFormContainer>
@@ -20,7 +39,7 @@ function CreateDepartmentForm({ toggleForm }) {
           <h2>New Department</h2>
           <IoCloseCircle className="close-btn" onClick={toggleForm} />
         </div>
-        <form action="">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <FormRow>
             <input type="text" id="name" {...register("name")} placeholder="" />
             <label className="input-label" htmlFor="name">
@@ -52,8 +71,7 @@ function CreateDepartmentForm({ toggleForm }) {
             {/* <img src="https://avatar.iran.liara.run/public/12" alt="" /> */}
           </FormRow>
           <FormRow>
-
-          <Button>Create</Button>
+            <Button>Create</Button>
           </FormRow>
         </form>
       </div>

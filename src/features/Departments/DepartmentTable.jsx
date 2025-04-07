@@ -14,6 +14,7 @@ import DepartmentRow from "./DepartmentRow";
 
 //DATA
 import { getDepartments } from "../../services/apiDepartments";
+import DepartmentProfile from "../../components/DepartmentProfile";
 
 function DepartmentTable() {
   const [showMsg, setShowMsg] = useState(false);
@@ -57,6 +58,7 @@ function DepartmentTable() {
           Dissolve department?
         </MessageBox>
       )}
+      <DepartmentProfile></DepartmentProfile>
     </Table>
   );
 }
