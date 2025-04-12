@@ -7,6 +7,7 @@ import Spinner from "../../components/Spinner";
 // import { MdOutlineModeEditOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { FiEye } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteDepartment } from "../../services/apiDepartments";
@@ -55,12 +56,18 @@ const TableData = styled(Link)`
   color: #000;
 `;
 
-function DepartmentRow({ department, toggleMsgBox, setDepartmentId }) {
+function DepartmentRow({ department, toggleMsgBox, setDepartmentData, toggleProfile }) {
   const { id: departmentId, name, description, management } = department;
 
   function handleDelete() {
     toggleMsgBox();
-    setDepartmentId(departmentId);
+    // setDepartmentId(departmentId);
+    setDepartmentData(department);
+  }
+
+  function handleViewProfile(){
+    toggleProfile();
+    setDepartmentData(department)
   }
 
   return (
@@ -69,22 +76,26 @@ function DepartmentRow({ department, toggleMsgBox, setDepartmentId }) {
         <TableData to={`/${name.toLowerCase()}`}>{name}</TableData>
       </TableCell>
       <TableCell>
-        <TableData to={`/${name.toLowerCase()}`}>{truncate(description, 20)}</TableData>
+        <TableData to={`/${name.toLowerCase()}`}>
+          {truncate(description, 20)}
+        </TableData>
       </TableCell>
       <TableCell>
         <TableData to={`/${name.toLowerCase()}`}>{management}</TableData>
       </TableCell>
       <TableCell className="action">
+        <StyledButton onClick={handleViewProfile} className="action__btn">
+          <FiEye/> view
+        </StyledButton>
         <StyledButton className="action__btn">
-          <FiEdit className="btn" />
+          <FiEdit className="btn" /> Edit
         </StyledButton>
         <StyledButton
-          // onClick={() => mutate(departmentId)}
           onClick={handleDelete}
           className="action__btn"
           $bg="#d91656"
         >
-          <RiDeleteBin6Line className="btn" />
+          <RiDeleteBin6Line className="btn" /> Drop
         </StyledButton>
       </TableCell>
     </TableRow>

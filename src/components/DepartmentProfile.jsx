@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { IoClose } from "react-icons/io5";
 
 // COMPONENTS
 import StyledButton from "./Button";
 
 //MIXINS
 import { wrapper } from "../styles/mixins";
+import { fadeIn } from "../styles/GlobalStyles";
+import { useEscapeEvent } from "../hooks/Events";
 
 const ProfileWrapper = styled.div`
   ${wrapper}
 `;
 
 const ProfileCard = styled.div`
-  width: 40rem;
-  height: 50rem;
+  width: 38%;
+  /* height: 50rem; */
   background-color: #fafafa;
   border-radius: 0.7rem;
   display: flex;
@@ -26,20 +29,31 @@ const ProfileCard = styled.div`
   gap: 2rem;
   color: #7c7a7a;
   position: relative;
-  padding: 3rem;
+  padding: 5rem 3rem;
+  animation: ${fadeIn} 0.3s cubic-bezier(0.26, 0.53, 0.74, 1.48);
 
   & .cardHeader {
     margin-bottom: 2rem;
     text-align: center;
 
-    h1 {
-      font-size: 3.5rem;
+    h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 400;
     }
+
     p {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 400;
       letter-spacing: 0.1rem;
-      color: var(--primary);
+      /* color: var(--primary); */
+    }
+
+    & .close-btn {
+      position: absolute;
+      top: 5%;
+      right: 3%;
+      cursor: pointer;
     }
   }
 
@@ -56,47 +70,53 @@ const ProfileCard = styled.div`
       font-weight: 400;
     }
 
-    p {
+    span p {
       font-size: 2rem;
     }
 
-    /* p{
-      max-width: 50%;
-      overflow-wrap: break-word;
-    } */
   }
 
-  & .btn{
+  & .btn {
     width: 100%;
     border-radius: 0.7rem;
     margin-top: 2rem;
   }
 `;
 
-function DepartmentProfile({ children, departmentData }) {
+function DepartmentProfile({ children, departmentData, toggleProfile }) {
+  const {name, description, management} = departmentData;
+
+  useEscapeEvent(toggleProfile);
+
   const navigate = useNavigate();
+  console.log(departmentData)
 
   return (
     <ProfileWrapper>
       <ProfileCard>
         <div className="cardHeader">
-          <h1>Henry Amusah</h1>
-          <p>Department Manager</p>
+          <IoClose onClick={toggleProfile} className="close-btn" />
+          <h4>Department Manager</h4>
+          <p>{management}</p>
         </div>
         <div className="cardBody">
           <span>
             <h4>Department Name</h4>
-            <p>Software Testing</p>
+            <p>{name}</p>
           </span>
           <span>
             <h4>Description</h4>
             <p>
-              Department Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Tenetur, veritatis.
+              {description}
             </p>
           </span>
         </div>
-        <StyledButton onClick={() => navigate('departmentData.name')} className="btn">View Employees</StyledButton>
+        <StyledButton
+          onClick={() => navigate(name)}
+          className="btn"
+        >
+          View Employees
+        </StyledButton>
       </ProfileCard>
     </ProfileWrapper>
   );

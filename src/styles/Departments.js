@@ -87,7 +87,7 @@ export const CreateFormContainer = styled.div`
     height: 70vh;
     background-color: var(--grey-background);
     border-radius: 2rem;
-    animation: ${fadeIn} 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    animation: ${fadeIn} 0.3s cubic-bezier(0.26, 0.53, 0.74, 1.48);
   }
 
   .wrapper .form-header {

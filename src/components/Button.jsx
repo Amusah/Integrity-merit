@@ -26,6 +26,7 @@ const StyledButton = styled.button`
   color: ${props => props.$textColor || '#fff'};
   font-size: 1.5rem;
   cursor: pointer;
+ 
   /* border-radius: 0.7rem; */
 
   &:hover {

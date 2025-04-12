@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
-
 // COMPONENTS
 import Spinner from "../../components/Spinner";
 import MessageBox from "../../components/MessageBox";
@@ -11,14 +10,15 @@ import MessageBox from "../../components/MessageBox";
 import { Table, TableHeader } from "../../styles/Departments";
 import DepartmentRow from "./DepartmentRow";
 
-
 //DATA
 import { getDepartments } from "../../services/apiDepartments";
 import DepartmentProfile from "../../components/DepartmentProfile";
 
 function DepartmentTable() {
   const [showMsg, setShowMsg] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const [departmentId, setDepartmentId] = useState(null);
+  const [departmentData, setDepartmentData] = useState(null);
 
   const {
     isLoading,
@@ -33,6 +33,9 @@ function DepartmentTable() {
     setShowMsg((show) => !show);
   }
 
+  function toggleProfile() {
+    setShowProfile((show) => !show);
+  }
 
   if (isLoading) return <Spinner />;
 
@@ -47,18 +50,20 @@ function DepartmentTable() {
       {/* {isLoading && <Spinner />} */}
       {departments.map((department) => (
         <DepartmentRow
-          setDepartmentId={setDepartmentId}
+          // setDepartmentId={setDepartmentId}
+          setDepartmentData={setDepartmentData}
           toggleMsgBox={toggleMsg}
+          toggleProfile={toggleProfile}
           department={department}
           key={department.id}
         />
       ))}
       {showMsg && (
-        <MessageBox departmentId={departmentId} toggleMsg={toggleMsg}>
+        <MessageBox departmentId={departmentData.id} toggleMsg={toggleMsg}>
           Dissolve department?
         </MessageBox>
       )}
-      <DepartmentProfile></DepartmentProfile>
+      {showProfile && <DepartmentProfile departmentData={departmentData} toggleProfile={toggleProfile}></DepartmentProfile>}
     </Table>
   );
 }
