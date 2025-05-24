@@ -83,6 +83,7 @@ const ProfileCard = styled.div`
   }
 `;
 
+
 function DepartmentProfile({ children, departmentData, toggleProfile }) {
   const {name, description, management} = departmentData;
 

@@ -70,7 +70,7 @@ function MessageBox({ children, toggleMsg, departmentId }) {
     mutationFn: (id) => deleteDepartment(id),
     onSuccess: () => {
       toggleMsg();
-      toast.success('Success');
+      toast.success('Department successfully deleted');
 
       queryClient.invalidateQueries({
         queryKey: ["departments"],

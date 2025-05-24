@@ -12,6 +12,7 @@ const Badge = styled.div`
   align-items: flex-end;
   text-transform: capitalize;
   position: absolute;
+  z-index: 9;
   & div {
   }
 `;

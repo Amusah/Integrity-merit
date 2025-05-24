@@ -166,30 +166,90 @@ export const departments = [
 export const employees = [
   {
     staffId: "001",
+    level: "L11",
     name: "Moh Dabana",
     role: "Product Manager",
-    image: "https://avatar.iran.liara.run/public/16",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
+    image: "https://avatar.iran.liara.run/public/45",
   },
 
   {
     staffId: "002",
+    level: "L11",
     name: "Henry Amusah",
     role: "Software Engineer",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
     image: "https://avatar.iran.liara.run/public/26",
   },
 
   {
     staffId: "003",
+    level: "L11",
     name: "Shuai Huang",
     role: "Procurement Specialist",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
     image: "https://avatar.iran.liara.run/public/12",
   },
 
   {
     staffId: "004",
-    name: "Shuai Huang",
+    level: "L11",
+    name: "Rifina",
     role: "Procurement Specialist",
-    image: "https://avatar.iran.liara.run/public/12",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
+    image: "https://avatar.iran.liara.run/public/84",
+  },
+
+  {
+    staffId: "005",
+    level: "L11",
+    name: "Yan Fan",
+    role: "Product Manager",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
+    image: "https://avatar.iran.liara.run/public/78",
+  },
+
+  {
+    staffId: "006",
+    level: "L11",
+    name: "Yimeng Xu",
+    role: "Software Engineer",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
+    image: "https://avatar.iran.liara.run/public/36",
+  },
+
+  {
+    staffId: "007",
+    level: "L11",
+    name: "CamilleLouis Leon",
+    role: "Procurement Specialist",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
+    image: "https://avatar.iran.liara.run/public/30",
+  },
+
+  {
+    staffId: "008",
+    level: "L11",
+    name: "Isaac Aryee",
+    role: "BTL Manager",
+    qualification: "Degree",
+    age: "28",
+    department: "Software",
+    image: "https://avatar.iran.liara.run/public/46",
   },
 ];
 

@@ -36,7 +36,7 @@ function App() {
             <Route path="employees" element={<Employees />} />
             <Route path="resignations" element={<Resignations />} />
             <Route path="rewards" element={<Rewards />} />
-            <Route path="kpi" element={<KPI />} />\
+            <Route path="kpi" element={<KPI />} />
             <Route path="feedbacks" element={<Feedbacks />} />
           </Route>
         </Routes>

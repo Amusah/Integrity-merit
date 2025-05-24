@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body{
-    font-family: 'Roboto Condensed', serif;
+    font-family: 'Roboto Flex', serif;
   }
 
   a{

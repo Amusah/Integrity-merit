@@ -4,7 +4,7 @@ import { SearchFormWrapper } from "../../styles/Departments";
 
 import { GoSearch } from "react-icons/go";
 
-function SearchDepartmentForm({ toggleForm }) {
+function SearchDepartmentForm({ children }) {
   return (
     <SearchFormWrapper>
       <form action="">
@@ -16,7 +16,8 @@ function SearchDepartmentForm({ toggleForm }) {
       </form>
       <span className="newBtn">
         {/* <button>View Profile</button> */}
-        <Button onClick={toggleForm}>Create New</Button>
+        {/* <Button onClick={toggleForm}>Create New</Button> */}
+        { children }
       </span>
     </SearchFormWrapper>
   );
