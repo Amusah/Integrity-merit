@@ -18,6 +18,7 @@ const StyledAppLayout = styled.div`
 
   & .mainContainer{
     width: 100%;
+    /* min-height: 100vh; */
   }
 
   ${breakPoints.laptopScreen} {

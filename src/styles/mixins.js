@@ -28,6 +28,7 @@ const wrapper = `
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
+  z-index: 10;
 `;
 
 

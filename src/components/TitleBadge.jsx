@@ -4,7 +4,7 @@ const Badge = styled.div`
   background-color: var(--light-primary);
   color: #fff;
   /* width: 20rem; */
-  height: 30rem;
+  height: 20rem;
   padding: 3rem 2rem;
   border-bottom-left-radius: 3rem;
   border-bottom-right-radius: 3rem;

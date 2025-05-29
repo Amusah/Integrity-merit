@@ -8,6 +8,12 @@ const GlobalStyles = createGlobalStyle`
     --light-primary: #72B7D4;
     --grey-background: #F9FAFB;
     --danger: #d91656
+
+    /* Status Codes */
+    /* --active: #D1F8EF; */
+    --active: #D5F8EF;
+    --on-leave: #FDF3CE;
+    --laid-off: #FFE5F4;
   }
 
   *, *::before, *::after {
@@ -41,6 +47,10 @@ const GlobalStyles = createGlobalStyle`
 
   button{
     transition: all .1s ease-in;
+  }
+
+  .isactive{
+    background-color: var(--active);
   }
 
   ${breakPoints.laptopScreen}{

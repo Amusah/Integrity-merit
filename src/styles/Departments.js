@@ -54,8 +54,11 @@ export const Table = styled.div`
 
 export const TableHeader = styled.header`
   background-color: var(--light-primary);
-  display: flex;
-  justify-content: space-around;
+  /* display: flex;
+  justify-content: space-evenly; */
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, 1fr); */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 1rem;
   font-size: 2rem;
   color: #fff;

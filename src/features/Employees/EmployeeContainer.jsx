@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from 'styled-components'
 import ProfileCard from "./ProfileCard";
+import EmployeeTable from "./EmployeeTable";
 
 import { employees } from "../..";
 
@@ -16,9 +17,10 @@ const StyledContainer = styled.div`
 function EmployeeContainer() {
   return (
     <StyledContainer>
-      {employees.map((employee) => (
+      {/* {employees.map((employee) => (
         <ProfileCard key={employee.staffId} employeeBio={employee} />
-      ))}
+      ))} */}
+      <EmployeeTable />
     </StyledContainer>
   );
 }
