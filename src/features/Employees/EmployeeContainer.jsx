@@ -1,6 +1,6 @@
 import React from "react";
-import { styled } from 'styled-components'
-import ProfileCard from "./ProfileCard";
+import { styled } from "styled-components";
+import ProfileCard from "./Profile";
 import EmployeeTable from "./EmployeeTable";
 
 import { employees } from "../..";

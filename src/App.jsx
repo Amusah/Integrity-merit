@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import AppLayout from "./components/AppLayout";
 import Departments from "./pages/Departments";
 import Employees from "./pages/Employees";
+import EmployeeProfile from './pages/EmployeeProfile'
 import Resignations from "./pages/Resignations";
 import Rewards from "./pages/Rewards";
 import KPI from "./pages/KPI";
@@ -34,6 +35,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="departments" element={<Departments />} />
             <Route path="employees" element={<Employees />} />
+            <Route path="/employees/:id" element={<EmployeeProfile />} />
             <Route path="resignations" element={<Resignations />} />
             <Route path="rewards" element={<Rewards />} />
             <Route path="kpi" element={<KPI />} />

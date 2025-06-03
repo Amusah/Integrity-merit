@@ -1,30 +1,64 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Table, TableHeader } from '../../styles/Departments'
-import { TableRow } from '../../styles/Employees';
-import { employees } from '../..';
+import { styled } from "styled-components";
+
+const badgeColors = {
+  active: "#D5F8EF",
+  onleave: "#FDF3CE",
+  laidoff: "#FFE5F4",
+};
+
+const ActionBtn = styled(Link)`
+  color: var(--light-primary);
+  
+
+  &:hover {
+    color: #000;
+  }
+`;
+
+// import { TableHeader } from '../../styles/Departments'
+// import { Table, TableRow } from '../../styles/Employees';
+import { Table, TableHeader, TableBody } from "../../styles/Employees";
+import StatusBadge from "../../components/StatusBadge";
+import { employees } from "../..";
 
 function EmployeeTable() {
   return (
-    <Table role="table">
-      <TableHeader role="row">
-        <div>Name</div>
-        <div>ID</div>
-        <div>Email</div>
-        <div>Department</div>
-        <div>Status</div>
-        <div>Action</div>
+    <Table>
+      <TableHeader>
+        <tr>
+          <td>Name</td>
+          <td>ID</td>
+          <td>Email</td>
+          <td>Department</td>
+          <td>Status</td>
+          <td>Action</td>
+        </tr>
       </TableHeader>
-      {employees.map(employee => <TableRow key={employee.id}> 
-        <div>{employee.name}</div>
-        <div>{employee.id}</div>
-        <div>{employee.email}</div>
-        <div>{employee.department}</div>
-        <div>{employee.status}</div>
-        <div></div>
-      </TableRow>)}
+      <TableBody>
+        {employees.map((employee) => (
+          <tr key={employee.id}>
+            <td>{employee.name}</td>
+            <td>{employee.id}</td>
+            <td>{employee.email}</td>
+            <td>{employee.department}</td>
+            <td>
+              <StatusBadge
+                bg={employee.status.replace(/\s+/g, "").toLowerCase()}
+              >
+                {employee.status}
+              </StatusBadge>
+            </td>
+            <td>
+              <ActionBtn to={`/employees/${employee.id}`}>View</ActionBtn>
+            </td>
+          </tr>
+        ))}
+      </TableBody>
     </Table>
   );
 }
 
-export default EmployeeTable
+export default EmployeeTable;
