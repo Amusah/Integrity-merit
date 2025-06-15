@@ -5,91 +5,18 @@ import StyledButton from "../../components/Button";
 
 import { RiEdit2Line } from "react-icons/ri";
 
-const CardContainer = styled.div`
-  display: flex;
-  padding: 3rem 2rem;
-  background-color: #f5f5f5;
-  box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.5rem 1.5rem;
-  border-radius: 0.7rem;
-  position: relative;
-
-  &:not(:last-child) {
-    margin-bottom: 3.5rem;
-  }
-
-  & .edit {
-    position: absolute;
-    right: 1.5%;
-    top: 14%;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 0.4rem;
-  }
-
-  /* & h2 {
-    color: var(--light-primary);
-    margin-bottom: 0.8rem;
-  } */
-`;
-
-const ProfileWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  img {
-    width: 8rem;
-  }
-
-  span h2 {
-    font-weight: 400;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-  }
-
-  span .name {
-    color: var(--light-primary);
-    margin-bottom: 0.8rem;
-    font-size: 1.5rem;
-  }
-
-  span .role {
-    font-size: 1.3rem;
-  }
-`;
-
-const InfoWrapper = styled.div`
-  /* display: flex; */
-  width: 100%;
-  & h2 {
-    margin-bottom: 1.8rem;
-    font-size: 1.5rem;
-  }
-`;
-
-const Info = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  .column{
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .column span p:first-child {
-    color: var(--light-primary);
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-  }
-`;
-
-
+import {
+  CardContainer,
+  ProfileWrapper,
+  InfoWrapper,
+  Info,
+  Experience,
+} from "./Profile.styles";
 
 function Profile({ children }) {
   return (
     <>
+      {/* profile */}
       <CardContainer>
         <StyledButton $bg="var(--dark-primary)" className="edit">
           Edit <RiEdit2Line />
@@ -196,13 +123,208 @@ function Profile({ children }) {
         </InfoWrapper>
       </CardContainer>
 
+      {/************* WORK EXPERIENCE *************/}
+
+      <CardContainer $pad={"2rem"}>
+        <InfoWrapper $mb={"0"}>
+          <StyledButton $bg="var(--dark-primary)" className="edit">
+            Edit <RiEdit2Line />
+          </StyledButton>
+          <h2>Work Experience</h2>
+        </InfoWrapper>
+      </CardContainer>
+      <Experience>
+        <div className="experience">
+          <span className="position">Position Held</span>
+          <div className="duration">
+            <div>
+              <p>Start Date</p>
+              <p>End Date</p>
+            </div>
+            <div className="date">
+              <span className="date-field">Day</span>
+              <span className="date-field">Day</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Month</span>
+              <span className="date-field">Month</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Year</span>
+              <span className="date-field">Year</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="experience">
+          <span className="position">Position Held</span>
+          <div className="duration">
+            <div>
+              <p>Start Date</p>
+              <p>End Date</p>
+            </div>
+            <div className="date">
+              <span className="date-field">Day</span>
+              <span className="date-field">Day</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Month</span>
+              <span className="date-field">Month</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Year</span>
+              <span className="date-field">Year</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="experience">
+          <span className="position">Position Held</span>
+          <div className="duration">
+            <div>
+              <p>Start Date</p>
+              <p>End Date</p>
+            </div>
+            <div className="date">
+              <span className="date-field">Day</span>
+              <span className="date-field">Day</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Month</span>
+              <span className="date-field">Month</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Year</span>
+              <span className="date-field">Year</span>
+            </div>
+          </div>
+        </div>
+      </Experience>
+
+      {/*********************EDUCATION ********************/}
+      <CardContainer $pad={"2rem"}>
+        <InfoWrapper $mb={"0"}>
+          <StyledButton $bg="var(--dark-primary)" className="edit">
+            Edit <RiEdit2Line />
+          </StyledButton>
+          <h2>Education</h2>
+        </InfoWrapper>
+      </CardContainer>
+      <Experience>
+        <div className="experience">
+          <span className="position">MSC Project Management</span>
+          <div className="duration">
+            <div>
+              <p>Start Date</p>
+              <p>End Date</p>
+            </div>
+            <div className="date">
+              <span className="date-field">Day</span>
+              <span className="date-field">Day</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Month</span>
+              <span className="date-field">Month</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Year</span>
+              <span className="date-field">Year</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="experience">
+          <span className="position">BSC Information Technology</span>
+          <div className="duration">
+            <div>
+              <p>Start Date</p>
+              <p>End Date</p>
+            </div>
+            <div className="date">
+              <span className="date-field">Day</span>
+              <span className="date-field">Day</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Month</span>
+              <span className="date-field">Month</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Year</span>
+              <span className="date-field">Year</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="experience">
+          <span className="position">Diploma in computer science</span>
+          <div className="duration">
+            <div>
+              <p>Start Date</p>
+              <p>End Date</p>
+            </div>
+            <div className="date">
+              <span className="date-field">Day</span>
+              <span className="date-field">Day</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Month</span>
+              <span className="date-field">Month</span>
+            </div>
+            <div className="date">
+              <span className="date-field">Year</span>
+              <span className="date-field">Year</span>
+            </div>
+          </div>
+        </div>
+      </Experience>
+
+      {/********************* RELATIONS *********************/}
       <CardContainer>
         <InfoWrapper>
           <StyledButton $bg="var(--dark-primary)" className="edit">
             Edit <RiEdit2Line />
           </StyledButton>
-          <h2>Work Experience</h2>
-         
+          <h2>Relations</h2>
+          <Info>
+            <div className="column">
+              <span>
+                <p>Next of Kin</p>
+                <p>Richell Arthur</p>
+              </span>
+            </div>
+            <div className="column">
+              <span>
+                <p>Email</p>
+                <p>richella@gmail.com</p>
+              </span>
+            </div>
+            <div className="column">
+              <span>
+                <p>Mobile</p>
+                <p>+233 572 864 906</p>
+              </span>
+            </div>
+          </Info>
+          <Info>
+            <div className="column">
+              <span>
+                <p>Emergency Contact</p>
+                <p>Emmanuel Arthur</p>
+              </span>
+            </div>
+            <div className="column">
+              <span>
+                <p>Email</p>
+                <p>manuel@gmail.com</p>
+              </span>
+            </div>
+            <div className="column">
+              <span>
+                <p>Mobile</p>
+                <p>+233 555 682 319</p>
+              </span>
+            </div>
+          </Info>
         </InfoWrapper>
       </CardContainer>
     </>

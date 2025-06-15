@@ -30,7 +30,7 @@ function EmployeeTable() {
       <TableHeader>
         <tr>
           <td>Name</td>
-          <td>ID</td>
+          <td>Staff ID</td>
           <td>Email</td>
           <td>Department</td>
           <td>Status</td>
