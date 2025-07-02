@@ -7,7 +7,8 @@ import Spinner from "../../components/Spinner";
 import MessageBox from "../../components/MessageBox";
 
 // STYLED COMPONENT
-import { Table, TableHeader } from "../../styles/Departments";
+// import { Table, TableHeader,  } from "../../styles/Departments";
+import { Table, TableHeader, TableBody } from "../../styles/Employees";
 import DepartmentRow from "./DepartmentRow";
 
 //DATA
@@ -40,15 +41,30 @@ function DepartmentTable() {
   if (isLoading) return <Spinner />;
 
   return (
-    <Table role="table">
-      <TableHeader role="row">
-        <div>Department Name</div>
-        <div>Department Description</div>
-        <div>Management</div>
-        <div>Actions</div>
+    <Table className="mt-[5rem]">
+      <TableHeader>
+        <tr>
+          <td>Department Name</td>
+          <td>Description</td>
+          <td>Management</td>
+          <td>Actions</td>
+        </tr>
       </TableHeader>
+
+      <TableBody>
+        {departments.map((department) => (
+          <DepartmentRow
+            setDepartmentId={setDepartmentId}
+            setDepartmentData={setDepartmentData}
+            toggleMsgBox={toggleMsg}
+            toggleProfile={toggleProfile}
+            department={department}
+            key={department.id}
+          ></DepartmentRow>
+        ))}
+      </TableBody>
       {/* {isLoading && <Spinner />} */}
-      {departments.map((department) => (
+      {/* {departments.map((department) => (
         <DepartmentRow
           // setDepartmentId={setDepartmentId}
           setDepartmentData={setDepartmentData}
@@ -57,13 +73,18 @@ function DepartmentTable() {
           department={department}
           key={department.id}
         />
-      ))}
+      ))} */}
       {showMsg && (
         <MessageBox departmentId={departmentData.id} toggleMsg={toggleMsg}>
           Dissolve department?
         </MessageBox>
       )}
-      {showProfile && <DepartmentProfile departmentData={departmentData} toggleProfile={toggleProfile}></DepartmentProfile>}
+      {showProfile && (
+        <DepartmentProfile
+          departmentData={departmentData}
+          toggleProfile={toggleProfile}
+        ></DepartmentProfile>
+      )}
     </Table>
   );
 }

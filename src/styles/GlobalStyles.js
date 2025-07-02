@@ -14,24 +14,23 @@ const GlobalStyles = createGlobalStyle`
     /* --active: #D1F8EF; */
   }
 
-  *, *::before, *::after {
+  /* *, *::before, *::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /* color: #72c6D1; */
 
     transition: background-color 0.3s, border 0.3s;
-  }
+  } */
 
-  html{
+  /* html{
     font-size: 62.5%;
-  }
+  } */
 
-  body{
+  /* body{
     font-family: 'Roboto Flex', serif;
-  }
+  } */
 
-  a{
+  /* a{
     text-decoration: none;
   }
 
@@ -45,7 +44,7 @@ const GlobalStyles = createGlobalStyle`
 
   button{
     transition: all .1s ease-in;
-  }
+  } */
 
   .available{
     background-color: var(--active);

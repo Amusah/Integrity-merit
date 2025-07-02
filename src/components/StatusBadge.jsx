@@ -15,33 +15,68 @@ const Badge = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  font-weight: 700;
+  padding: 1.2rem 0;
   /* flex-grow: 1; */
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 
   ${(props) => {
-    switch (props.$bg) {
-      case "onleave":
-        return css`
-          background-color: #fdf3ce;
-          color: #f4631e;
-        `;
-      case "laidoff":
-        return css`
-          background-color: #dddddd;
-        `;
-
-        case "resigned": 
-        return css`
-          background-color: #ffe5f4;
-          color: #cb0404;
-        `;
-
-      default:
-        return css`
-          background-color: #d5f8ef;
-          color: #16610e;
-        `;
+    if (props.$bg === "onleave" || props.$bg === 'pending') {
+      return css`
+        background-color: #fef9c3;
+        color: #ca8a04;
+      `;
     }
+
+    if (props.$bg === "laidoff") {
+      return css`
+        background-color: #dddddd;
+      `;
+    }
+
+    if (props.$bg === "resigned" || props.$bg === "termination") {
+      return css`
+        background-color: #fee2e2;
+        color: #991b1b;
+      `;
+    }
+
+    if(props.$bg === 'resignation'){
+      return css`
+        background-color: #dbeafe;
+        color: #1e40af;
+      `;
+    }
+
+    return css`
+      background-color: #dcfce7;
+      color: #16a34a;
+    `;
+
+
+    // switch (props.$bg) {
+    //   case "onleave":
+    //     return css`
+    //       background-color: #fdf3ce;
+    //       color: #f4631e;
+    //     `;
+    //   case "laidoff":
+    //     return css`
+    //       background-color: #dddddd;
+    //     `;
+
+    //     case `${'resigned' || 'termination'}`:
+    //     return css`
+    //       background-color: #ffe5f4;
+    //       color: #cb0404;
+    //     `;
+
+    //   default:
+    //     return css`
+    //       background-color: #d5f8ef;
+    //       color: #16610e;
+    //     `;
+    // }
   }}
 `;
 
@@ -50,5 +85,3 @@ function StatusBadge({ children, bg }) {
 }
 
 export default StatusBadge;
-
-

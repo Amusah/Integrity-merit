@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineEye } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
 
 import { styled } from "styled-components";
 
@@ -11,7 +13,6 @@ const badgeColors = {
 
 const ActionBtn = styled(Link)`
   color: var(--light-primary);
-  
 
   &:hover {
     color: #000;
@@ -29,20 +30,22 @@ function EmployeeTable() {
     <Table>
       <TableHeader>
         <tr>
-          <td>Name</td>
-          <td>Staff ID</td>
-          <td>Email</td>
+          <td>Employee</td>
+          <td>Position</td>
           <td>Department</td>
           <td>Status</td>
-          <td>Action</td>
+          <td>Actions</td>
         </tr>
       </TableHeader>
       <TableBody>
         {employees.map((employee) => (
-          <tr key={employee.id}>
-            <td>{employee.name}</td>
-            <td>{employee.id}</td>
-            <td>{employee.email}</td>
+          <tr key={employee.staffId}>
+            <td>
+              {`${employee.firstName} ${employee.middleName || ""} ${
+                employee.lastName
+              }`}
+            </td>
+            <td>{employee.role}</td>
             <td>{employee.department}</td>
             <td>
               <StatusBadge
@@ -51,8 +54,13 @@ function EmployeeTable() {
                 {employee.status}
               </StatusBadge>
             </td>
-            <td>
-              <ActionBtn to={`/employees/${employee.id}`}>View</ActionBtn>
+            <td className="flex">
+              <ActionBtn className="mr-8" to={`/employees/${employee.id}`}>
+                <AiOutlineEye size={18} />
+              </ActionBtn>
+              <ActionBtn to={`/employees/${employee.id}`}>
+                <FaRegEdit size={18} />
+              </ActionBtn>
             </td>
           </tr>
         ))}

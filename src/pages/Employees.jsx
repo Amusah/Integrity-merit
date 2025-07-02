@@ -20,7 +20,7 @@ function Employees() {
   return (
     <Container>
       <SearchBar>
-        <Button>Add Employee</Button>
+        <Button>+ Add Employee</Button>
       </SearchBar>
      <EmployeeContainer/>
      {/* {showForm && <AddEmployeeForm />} */}

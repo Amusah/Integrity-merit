@@ -8,6 +8,10 @@ import Spinner from "../../components/Spinner";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEye } from "react-icons/fi";
+
+import { AiOutlineEye } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
+
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteDepartment } from "../../services/apiDepartments";
@@ -42,14 +46,6 @@ const TableCell = styled.div`
     }
   }
 
-  .btn {
-    /* padding: 1rem; */
-    /* margin-right: 1rem; */
-    /* margin: 0 auto; */
-    /* display: flex;
-    justify-content: space-between;
-    gap: 1rem; */
-  }
 `;
 
 const TableData = styled(Link)`
@@ -71,34 +67,51 @@ function DepartmentRow({ department, toggleMsgBox, setDepartmentData, toggleProf
   }
 
   return (
-    <TableRow>
-      <TableCell>
-        <TableData to={`/${name.toLowerCase()}`}>{name}</TableData>
-      </TableCell>
-      <TableCell>
-        <TableData to={`/${name.toLowerCase()}`}>
-          {truncate(description, 20)}
-        </TableData>
-      </TableCell>
-      <TableCell>
-        <TableData to={`/${name.toLowerCase()}`}>{management}</TableData>
-      </TableCell>
-      <TableCell className="action">
-        <StyledButton onClick={handleViewProfile} className="action__btn">
-          <FiEye/> view
-        </StyledButton>
-        <StyledButton className="action__btn">
-          <FiEdit className="btn" /> Edit
-        </StyledButton>
-        <StyledButton
-          onClick={handleDelete}
-          className="action__btn"
-          $bg="#d91656"
-        >
-          <RiDeleteBin6Line className="btn" /> Drop
-        </StyledButton>
-      </TableCell>
-    </TableRow>
+    <tr>
+      <td>{name}</td>
+      <td>{description}</td>
+      <td>{management}</td>
+      <td className="flex">
+        <AiOutlineEye
+          onClick={handleViewProfile}
+          className="mr-8 text-primary hover:text-[#000] cursor-pointer"
+          size={18}
+        />
+        <FaRegEdit
+          className="text-primary hover:text-[#000] cursor-pointer"
+          size={18}
+        />
+      </td>
+    </tr>
+
+    // <TableRow>
+    //   <TableCell>
+    //     <TableData to={`/${name.toLowerCase()}`}>{name}</TableData>
+    //   </TableCell>
+    //   <TableCell>
+    //     <TableData to={`/${name.toLowerCase()}`}>
+    //       {truncate(description, 20)}
+    //     </TableData>
+    //   </TableCell>
+    //   <TableCell>
+    //     <TableData to={`/${name.toLowerCase()}`}>{management}</TableData>
+    //   </TableCell>
+    //   <TableCell className="action">
+    //     <StyledButton onClick={handleViewProfile} className="action__btn">
+    //       <FiEye/> view
+    //     </StyledButton>
+    //     <StyledButton className="action__btn">
+    //       <FiEdit className="btn" /> Edit
+    //     </StyledButton>
+    //     <StyledButton
+    //       onClick={handleDelete}
+    //       className="action__btn"
+    //       $bg="#d91656"
+    //     >
+    //       <RiDeleteBin6Line className="btn" /> Drop
+    //     </StyledButton>
+    //   </TableCell>
+    // </TableRow>
   );
 }
 

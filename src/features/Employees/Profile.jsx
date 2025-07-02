@@ -49,7 +49,7 @@ function Profile({ children }) {
               </span>
               <span>
                 <p>Nationality</p>
-                <p>Ghana</p>
+                <p>Ghanaian</p>
               </span>
             </div>
             <div className="column">
