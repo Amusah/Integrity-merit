@@ -1,10 +1,10 @@
-import React from "react";
-import { css, styled } from "styled-components";
+import React from 'react';
+import { css, styled } from 'styled-components';
 
 const badgeColors = {
-  active: "#D5F8EF",
-  onleave: "#FDF3CE",
-  laidoff: "#FFE5F4",
+  active: '#D5F8EF',
+  onleave: '#FDF3CE',
+  laidoff: '#FFE5F4',
 };
 
 const Badge = styled.div`
@@ -21,30 +21,82 @@ const Badge = styled.div`
   /* text-transform: capitalize; */
 
   ${(props) => {
-    if (props.$bg === "onleave" || props.$bg === 'pending') {
+    if (props.$bg === 'onleave' || props.$bg === 'pending') {
       return css`
         background-color: #fef9c3;
         color: #ca8a04;
       `;
     }
 
-    if (props.$bg === "laidoff") {
+    if (props.$bg === 'laidoff') {
       return css`
         background-color: #dddddd;
       `;
     }
 
-    if (props.$bg === "resigned" || props.$bg === "termination") {
+    if (props.$bg === 'resigned' || props.$bg === 'termination') {
       return css`
         background-color: #fee2e2;
         color: #991b1b;
       `;
     }
 
-    if(props.$bg === 'resignation'){
+    if (props.$bg === 'resignation') {
       return css`
         background-color: #dbeafe;
         color: #1e40af;
+      `;
+    }
+
+    // Reward/Recognition status colors
+
+    if (props.$bg === 'approved') {
+      return css`
+        background-color: #dcfce7;
+
+        color: #16a34a;
+      `;
+    }
+
+    if (props.$bg === 'rejected') {
+      return css`
+        background-color: #fee2e2;
+
+        color: #991b1b;
+      `;
+    }
+
+    if (props.$bg === 'under_review') {
+      return css`
+        background-color: #dbeafe;
+
+        color: #1e40af;
+      `;
+    }
+
+    // Reward type colors
+
+    if (props.$bg === 'monetary') {
+      return css`
+        background-color: #dcfce7;
+
+        color: #16a34a;
+      `;
+    }
+
+    if (props.$bg === 'recognition') {
+      return css`
+        background-color: #fef3c7;
+
+        color: #d97706;
+      `;
+    }
+
+    if (props.$bg === 'certificate') {
+      return css`
+        background-color: #e0e7ff;
+
+        color: #4338ca;
       `;
     }
 
@@ -52,7 +104,6 @@ const Badge = styled.div`
       background-color: #dcfce7;
       color: #16a34a;
     `;
-
 
     // switch (props.$bg) {
     //   case "onleave":
