@@ -1,9 +1,12 @@
+import Container from '../components/Container';
+import KPIDashboard from '../features/KPI/KPIDashboard';
+
 function KPI() {
   return (
-    <h1>
-      KPI...
-    </h1>
-  )
+    <Container>
+      <KPIDashboard />
+    </Container>
+  );
 }
 
-export default KPI
+export default KPI;

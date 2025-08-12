@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 const StyledContainer = styled.div`
   background-color: var(--grey-background);
@@ -8,17 +8,13 @@ const StyledContainer = styled.div`
   overflow: auto;
   /* position: relative; */
 
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 `;
 
 function Container({ children }) {
-  return (
-    <StyledContainer>
-      { children }
-    </StyledContainer>
-  )
+  return <StyledContainer>{children}</StyledContainer>;
 }
 
 export default Container;
